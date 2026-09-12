@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#FFF0F5"/>
+      <stop offset="100%" stop-color="#F8E8F0"/>
+    </radialGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#bg)" rx="20"/>
+  <!-- Body -->
+  <ellipse cx="200" cy="240" rx="95" ry="85" fill="#F4C8D8"/>
+  <!-- Head -->
+  <circle cx="200" cy="155" r="80" fill="#F9E0EA"/>
+  <!-- Ears -->
+  <ellipse cx="142" cy="95" rx="28" ry="38" fill="#F4C8D8" transform="rotate(-15 142 95)"/>
+  <ellipse cx="258" cy="95" rx="28" ry="38" fill="#F4C8D8" transform="rotate(15 258 95)"/>
+  <ellipse cx="142" cy="95" rx="14" ry="20" fill="#F9B8D0" transform="rotate(-15 142 95)"/>
+  <ellipse cx="258" cy="95" rx="14" ry="20" fill="#F9B8D0" transform="rotate(15 258 95)"/>
+  <!-- Eyes (happy closed) -->
+  <path d="M172 150 Q182 142 192 150" stroke="#8B4060" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M208 150 Q218 142 228 150" stroke="#8B4060" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <!-- Blush -->
+  <ellipse cx="163" cy="168" rx="16" ry="10" fill="#F9A0C0" opacity="0.5"/>
+  <ellipse cx="237" cy="168" rx="16" ry="10" fill="#F9A0C0" opacity="0.5"/>
+  <!-- Nose -->
+  <ellipse cx="200" cy="175" rx="7" ry="5" fill="#E88098"/>
+  <!-- Smile -->
+  <path d="M183 185 Q200 198 217 185" stroke="#D06080" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Paws -->
+  <ellipse cx="140" cy="305" rx="35" ry="28" fill="#F4C8D8"/>
+  <ellipse cx="260" cy="305" rx="35" ry="28" fill="#F4C8D8"/>
+  <!-- Tiny flowers -->
+  <circle cx="60" cy="60" r="12" fill="#E8A4B8" opacity="0.7"/>
+  <circle cx="60" cy="60" r="6" fill="#FFD6A0"/>
+  <circle cx="340" cy="60" r="10" fill="#C4B5D4" opacity="0.7"/>
+  <circle cx="340" cy="60" r="5" fill="#FFD6A0"/>
+  <circle cx="60" cy="340" r="9" fill="#F2C9A0" opacity="0.7"/>
+  <circle cx="60" cy="340" r="4.5" fill="#FFD6A0"/>
+  <circle cx="340" cy="340" r="11" fill="#E8A4B8" opacity="0.7"/>
+  <circle cx="340" cy="340" r="5.5" fill="#FFD6A0"/>
+  <!-- Sparkles -->
+  <text x="320" y="160" font-size="20" opacity="0.6">✨</text>
+  <text x="50" y="200" font-size="16" opacity="0.5">🌸</text>
+</svg>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday! 🎂</title>
+  <meta name="description" content="A special birthday surprise made just for you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Dancing+Script:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ════════════════════════════════════════════
+       PAGE 1 — HAPPY BIRTHDAY
+  ════════════════════════════════════════════ -->
+  <section id="page1" class="page page--active">
+    <!-- Animated flower corners -->
+    <div class="flower-corner flower-corner--tl">
+      <svg class="flower-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <g class="flower-group">
+          <ellipse class="petal" cx="100" cy="60" rx="18" ry="35" fill="#F4B8C8" opacity="0.85" />
+          <ellipse class="petal" cx="140" cy="100" rx="18" ry="35" fill="#E8A4B8" opacity="0.85"
+            transform="rotate(72 100 100)" />
+          <ellipse class="petal" cx="125" cy="148" rx="18" ry="35" fill="#F2C9A0" opacity="0.85"
+            transform="rotate(144 100 100)" />
+          <ellipse class="petal" cx="75" cy="148" rx="18" ry="35" fill="#C4B5D4" opacity="0.85"
+            transform="rotate(216 100 100)" />
+          <ellipse class="petal" cx="60" cy="100" rx="18" ry="35" fill="#F4B8C8" opacity="0.85"
+            transform="rotate(288 100 100)" />
+          <circle cx="100" cy="100" r="22" fill="#FFF0A0" />
+          <circle cx="100" cy="100" r="14" fill="#F9D84A" />
+        </g>
+      </svg>
+    </div>
+    <div class="flower-corner flower-corner--tr">
+      <svg class="flower-svg flower-svg--alt" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <g class="flower-group">
+          <ellipse class="petal" cx="100" cy="60" rx="16" ry="32" fill="#C4B5D4" opacity="0.85" />
+          <ellipse class="petal" cx="100" cy="60" rx="16" ry="32" fill="#E8A4B8" opacity="0.85"
+            transform="rotate(72 100 100)" />
+          <ellipse class="petal" cx="100" cy="60" rx="16" ry="32" fill="#F2C9A0" opacity="0.85"
+            transform="rotate(144 100 100)" />
+          <ellipse class="petal" cx="100" cy="60" rx="16" ry="32" fill="#F4B8C8" opacity="0.85"
+            transform="rotate(216 100 100)" />
+          <ellipse class="petal" cx="100" cy="60" rx="16" ry="32" fill="#C4B5D4" opacity="0.85"
+            transform="rotate(288 100 100)" />
+          <circle cx="100" cy="100" r="20" fill="#FFF0A0" />
+          <circle cx="100" cy="100" r="12" fill="#F9D84A" />
+        </g>
+      </svg>
+    </div>
+    <div class="flower-corner flower-corner--bl">
+      <svg class="flower-svg flower-svg--small" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <g class="flower-group">
+          <ellipse cx="100" cy="60" rx="14" ry="28" fill="#F2C9A0" opacity="0.85" />
+          <ellipse cx="100" cy="60" rx="14" ry="28" fill="#E8A4B8" opacity="0.85" transform="rotate(60 100 100)" />
+          <ellipse cx="100" cy="60" rx="14" ry="28" fill="#C4B5D4" opacity="0.85" transform="rotate(120 100 100)" />
+          <ellipse cx="100" cy="60" rx="14" ry="28" fill="#F4B8C8" opacity="0.85" transform="rotate(180 100 100)" />
+          <ellipse cx="100" cy="60" rx="14" ry="28" fill="#F2C9A0" opacity="0.85" transform="rotate(240 100 100)" />
+          <ellipse cx="100" cy="60" rx="14" ry="28" fill="#E8A4B8" opacity="0.85" transform="rotate(300 100 100)" />
+          <circle cx="100" cy="100" r="18" fill="#FFF0A0" />
+          <circle cx="100" cy="100" r="10" fill="#F9D84A" />
+        </g>
+      </svg>
+    </div>
+    <div class="flower-corner flower-corner--br">
+      <svg class="flower-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <g class="flower-group">
+          <ellipse cx="100" cy="60" rx="18" ry="34" fill="#E8A4B8" opacity="0.85" />
+          <ellipse cx="100" cy="60" rx="18" ry="34" fill="#F4B8C8" opacity="0.85" transform="rotate(72 100 100)" />
+          <ellipse cx="100" cy="60" rx="18" ry="34" fill="#C4B5D4" opacity="0.85" transform="rotate(144 100 100)" />
+          <ellipse cx="100" cy="60" rx="18" ry="34" fill="#F2C9A0" opacity="0.85" transform="rotate(216 100 100)" />
+          <ellipse cx="100" cy="60" rx="18" ry="34" fill="#F4B8C8" opacity="0.85" transform="rotate(288 100 100)" />
+          <circle cx="100" cy="100" r="22" fill="#FFF0A0" />
+          <circle cx="100" cy="100" r="14" fill="#F9D84A" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- Falling petals container (JS populates this) -->
+    <div id="petal-container" class="petal-container"></div>
+
+    <!-- Sparkles (JS populates) -->
+    <div id="sparkle-container" class="sparkle-container"></div>
+
+    <!-- Main content -->
+    <div class="page-content page1-content">
+      <div class="page1-badge">🌸 a surprise for you 🌸</div>
+      <h1 class="page1-title">
+        Happy Birthday,<br />
+        <span class="page1-name">CHRISSSS!</span>
+      </h1>
+      <p class="page1-subtitle">Today, a certain someone leveled up.</p>
+      <button class="btn btn--primary" id="p1-next">next →</button>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       PAGE 2 — BIRTHDAY MESSAGE
+  ════════════════════════════════════════════ -->
+  <section id="page2" class="page">
+    <div class="petal-container" id="petal-container-2"></div>
+    <div class="page-content page2-content">
+      <h2 class="page2-title">Before you continue...</h2>
+      <div class="letter-card">
+        <!-- Warning block -->
+
+        <div class="letter-divider"></div>
+        <p class="letter-funny">
+          Yes, BENTE ka na ^_^
+        </p>
+        <div class="letter-divider letter-divider--dashed"></div>
+
+        <!-- Personal message — REPLACE THIS WITH YOUR OWN WORDS -->
+        <div class="letter-body">
+          <p class="letter-salutation">Happy birthday, Christiann!</p>
+          <p>
+            <em>tanda na sha HAHAHA. Honestly, I'm forever glad na naging friend kita superrrr. I appreciate all the
+              random conversations, kalokohan, and memories. </em>
+          </p>
+          <p>
+            <em> I hope you enjoy your day and sana maging okay and masaya yung 20th year mo. Deserve mo naman siguro
+              after surviving 19 years HAHAHAH</em>
+          </p>
+          <p class="letter-sign">ur bff<br /><span class="letter-from">hana</span></p>
+        </div>
+      </div>
+      <button class="btn btn--primary" id="p2-next">okay, next →</button>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       PAGE 3 — CHOOSE YOUR MEME
+  ════════════════════════════════════════════ -->
+  <section id="page3" class="page">
+    <div class="page-content page3-content">
+      <h2 class="page3-title">Okay, now choose your destiny.</h2>
+      <p class="page3-subtitle">Pick the meme that best represents your current birthday mood.</p>
+
+      <div class="meme-grid" id="meme-grid">
+        <div class="meme-card" data-meme="1" tabindex="0" role="button" aria-label="Meme option: just happy to be here">
+          <div class="meme-img-wrap">
+            <img src="assets/images/meme-1.jpg" alt="tomboy" class="meme-img" />
+          </div>
+          <p class="meme-caption">just happy to be here</p>
+        </div>
+        <div class="meme-card" data-meme="2" tabindex="0" role="button" aria-label="Meme option: another year survived">
+          <div class="meme-img-wrap">
+            <img src="assets/images/meme-2.jpg" alt="kween lengleng" class="meme-img" />
+          </div>
+          <p class="meme-caption">another year survived</p>
+        </div>
+        <div class="meme-card" data-meme="3" tabindex="0" role="button"
+          aria-label="Meme option: I have no idea what's happening">
+          <div class="meme-img-wrap">
+            <img src="assets/images/meme-3.jpg" alt="bleh" class="meme-img" />
+          </div>
+          <p class="meme-caption">I have no idea what's happening</p>
+        </div>
+        <div class="meme-card" data-meme="4" tabindex="0" role="button" aria-label="Meme option: send help">
+          <div class="meme-img-wrap">
+            <img src="assets/images/meme-4.jpg" alt="balans" class="meme-img" />
+          </div>
+          <p class="meme-caption">send help</p>
+        </div>
+      </div>
+
+      <!-- Processing overlay (hidden by default) -->
+      <div class="processing-overlay" id="processing-overlay">
+        <div class="processing-card">
+          <div class="processing-spinner"></div>
+          <p class="processing-text" id="processing-text">Choice received...</p>
+          <button class="btn btn--primary processing-reveal-btn" id="processing-reveal" style="display:none;">reveal
+            →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       PAGE 4 — VIDEO REVEAL
+  ════════════════════════════════════════════ -->
+  <section id="page4" class="page">
+    <div class="page-content page4-content">
+      <p class="page4-pre">You chose wisely.</p>
+      <h2 class="page4-title">HHAHAHAH HBDD 🥳</h2>
+
+      <div class="video-wrapper" id="video-wrapper">
+        <!-- Custom play overlay for when autoplay is blocked -->
+        <div class="video-play-overlay" id="video-play-overlay">
+          <button class="video-play-btn" id="video-play-btn" aria-label="Play video">
+            <span class="play-icon">▶</span>
+          </button>
+          <p>tap to play</p>
+        </div>
+        <video id="birthday-video" class="birthday-video" playsinline preload="metadata" poster="">
+          <!-- ↓↓↓ DROP YOUR VIDEO HERE ↓↓↓ -->
+          <source src="assets/images/rosmar.mp4" type="video/mp4" />
+          Your browser doesn't support video. Try a different browser.
+        </video>
+
+        <!-- Shown when video file is missing -->
+        <div class="video-missing" id="video-missing" style="display:none;">
+          <div class="video-missing-icon">🎬</div>
+          <p>Video coming soon!</p>
+          <p class="video-missing-hint">Place your video at: <code>assets/video/birthday-video.mp4</code></p>
+          <button class="btn btn--ghost" id="video-skip-btn">okayyy, enough emotions →</button>
+        </div>
+      </div>
+
+      <button class="btn btn--primary page4-next-btn" id="p4-next" style="display:none;">HAHAHAHHA NEXTT →</button>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       PAGE 5 — CATCH THE HEARTS MINI-GAME
+  ════════════════════════════════════════════ -->
+  <section id="page5" class="page">
+    <div class="page-content page5-content">
+      <h2 class="page5-title">BIRTHDAY CHALLENGE ❤️</h2>
+      <p class="page5-subtitle">Catch 10 hearts to unlock a surprise!</p>
+
+      <div class="game-hud">
+        <div class="hud-item">
+          <span class="hud-label">Score</span>
+          <span class="hud-value" id="game-score">0 / 10</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">Time</span>
+          <span class="hud-value" id="game-timer">30s</span>
+        </div>
+      </div>
+
+      <div class="game-legend">
+        <span>❤️ +1</span>
+        <span>💔 −1</span>
+        <span>⭐ +2</span>
+        <span>💩 −1</span>
+      </div>
+
+      <div class="canvas-wrapper">
+        <canvas id="game-canvas" tabindex="0" style="outline:none;"></canvas>
+        <!-- Game overlays -->
+        <div class="game-overlay" id="game-start-overlay">
+          <div class="game-overlay-card">
+            <p class="game-overlay-emoji">🎮</p>
+            <h3>Ready?</h3>
+            <p class="game-overlay-hint desktop-hint">Use ← → or A / D to move</p>
+            <p class="game-overlay-hint mobile-hint">Use the buttons below to move</p>
+            <button class="btn btn--primary" id="game-start-btn">Start Game</button>
+          </div>
+        </div>
+        <div class="game-overlay game-overlay--win" id="game-win-overlay" style="display:none;">
+          <div class="game-overlay-card">
+            <div class="win-confetti" id="win-confetti-canvas-wrap">
+              <canvas id="confetti-canvas"></canvas>
+            </div>
+            <p class="game-overlay-emoji">🎉</p>
+            <h3>YOU DID IT!!</h3>
+            <p>Birthday cake unlocked. 🍰</p>
+            <button class="btn btn--primary" id="game-win-btn">claim my cake →</button>
+          </div>
+        </div>
+        <div class="game-overlay" id="game-over-overlay" style="display:none;">
+          <div class="game-overlay-card">
+            <p class="game-overlay-emoji">😅</p>
+            <h3>Time's up!</h3>
+            <p>You were so close. Try again?</p>
+            <button class="btn btn--primary" id="game-retry-btn">Try Again</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile controls -->
+      <div class="mobile-controls" id="mobile-controls">
+        <button class="mobile-btn" id="mobile-left" aria-label="Move left">◀</button>
+        <button class="mobile-btn" id="mobile-right" aria-label="Move right">▶</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       PAGE 6 — BIRTHDAY CAKE + FINAL MESSAGE
+  ════════════════════════════════════════════ -->
+  <section id="page6" class="page">
+    <div class="petal-container" id="petal-container-6"></div>
+    <div class="page-content page6-content">
+
+      <div class="cake-scene" id="cake-scene">
+        <!-- Table -->
+        <div class="table-surface"></div>
+        <div class="table-leg table-leg--left"></div>
+        <div class="table-leg table-leg--right"></div>
+
+        <!-- Cake (animated in by JS) -->
+        <div class="cake-wrap" id="cake-wrap">
+          <!-- Candles -->
+          <div class="candles-row" id="candles-row">
+            <div class="candle" data-candle="0">
+              <div class="candle-flame" id="flame-0">
+                <div class="flame-inner"></div>
+              </div>
+              <div class="candle-body"></div>
+            </div>
+            <div class="candle" data-candle="1">
+              <div class="candle-flame" id="flame-1">
+                <div class="flame-inner"></div>
+              </div>
+              <div class="candle-body"></div>
+            </div>
+            <div class="candle" data-candle="2">
+              <div class="candle-flame" id="flame-2">
+                <div class="flame-inner"></div>
+              </div>
+              <div class="candle-body"></div>
+            </div>
+            <div class="candle" data-candle="3">
+              <div class="candle-flame" id="flame-3">
+                <div class="flame-inner"></div>
+              </div>
+              <div class="candle-body"></div>
+            </div>
+            <div class="candle" data-candle="4">
+              <div class="candle-flame" id="flame-4">
+                <div class="flame-inner"></div>
+              </div>
+              <div class="candle-body"></div>
+            </div>
+          </div>
+
+          <!-- Cake tiers -->
+          <div class="cake-tier cake-tier--top">
+            <div class="cake-frosting"></div>
+            <div class="cake-decoration">🌸✨🌸</div>
+          </div>
+          <div class="cake-tier cake-tier--bottom">
+            <div class="cake-frosting cake-frosting--bottom"></div>
+            <div class="cake-drips">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="cake-plate"></div>
+        </div>
+
+        <!-- Blow hint -->
+        <p class="blow-hint" id="blow-hint">🤍 click the cake to make a wish 🤍</p>
+      </div>
+
+      <!-- Messages -->
+      <div class="cake-messages" id="cake-messages">
+        <p class="cake-msg-main">Here's your birthday cake!</p>
+        <p class="cake-msg-sub">Since I can't physically hand you one right now,<br />here's a digital one instead.</p>
+        <p class="cake-msg-wish">Make a wish. 🤍</p>
+      </div>
+
+      <!-- Final message (shown after candles blown out) -->
+      <div class="final-message" id="final-message" style="display:none;">
+        <p class="final-name">Happy birthday again, <span>Christian!</span>.</p>
+        <p class="final-sub">heheheh eto lang kinaya 😁</p>
+        <div class="final-hearts" id="final-hearts"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

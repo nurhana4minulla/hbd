@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bg4" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#FFF5EE"/>
+      <stop offset="100%" stop-color="#FFE8E0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg4)" rx="20"/>
+  <!-- Gift boxes stack -->
+  <!-- Box 3 (back-left) -->
+  <rect x="60" y="190" width="110" height="90" fill="#C4B5D4" rx="8"/>
+  <rect x="60" y="190" width="110" height="20" fill="#B0A0C4" rx="8 8 0 0"/>
+  <line x1="115" y1="190" x2="115" y2="280" stroke="#9080B0" stroke-width="4"/>
+  <!-- Box 2 (back-right) -->
+  <rect x="220" y="180" width="120" height="100" fill="#F2C9A0" rx="8"/>
+  <rect x="220" y="180" width="120" height="22" fill="#E0B080" rx="8 8 0 0"/>
+  <line x1="280" y1="180" x2="280" y2="280" stroke="#C09060" stroke-width="4"/>
+  <!-- Box 1 (front-center) -->
+  <rect x="120" y="250" width="160" height="110" fill="#F4B8C8" rx="10"/>
+  <rect x="120" y="250" width="160" height="26" fill="#E098A8" rx="10 10 0 0"/>
+  <line x1="200" y1="250" x2="200" y2="360" stroke="#C07888" stroke-width="5"/>
+  <!-- Ribbon bows -->
+  <ellipse cx="115" cy="190" rx="14" ry="9" fill="#FFF0A0" transform="rotate(-10 115 190)"/>
+  <ellipse cx="115" cy="190" rx="14" ry="9" fill="#FFF0A0" transform="rotate(10 115 190)"/>
+  <circle cx="115" cy="190" r="6" fill="#F9D84A"/>
+  <ellipse cx="280" cy="180" rx="14" ry="9" fill="#FFD0E0" transform="rotate(-10 280 180)"/>
+  <ellipse cx="280" cy="180" rx="14" ry="9" fill="#FFD0E0" transform="rotate(10 280 180)"/>
+  <circle cx="280" cy="180" r="6" fill="#F4A0B8"/>
+  <ellipse cx="200" cy="250" rx="18" ry="11" fill="#FFF0A0" transform="rotate(-10 200 250)"/>
+  <ellipse cx="200" cy="250" rx="18" ry="11" fill="#FFF0A0" transform="rotate(10 200 250)"/>
+  <circle cx="200" cy="250" r="8" fill="#F9D84A"/>
+  <!-- Character peeking out -->
+  <circle cx="200" cy="205" r="52" fill="#FFF0C8"/>
+  <!-- Wide eyes (overwhelmed) -->
+  <circle cx="182" cy="198" r="13" fill="white" stroke="#8B5020" stroke-width="1.5"/>
+  <circle cx="218" cy="198" r="13" fill="white" stroke="#8B5020" stroke-width="1.5"/>
+  <circle cx="182" cy="199" r="7" fill="#5A3010"/>
+  <circle cx="218" cy="199" r="7" fill="#5A3010"/>
+  <!-- Highlight -->
+  <circle cx="185" cy="196" r="3" fill="white"/>
+  <circle cx="221" cy="196" r="3" fill="white"/>
+  <!-- Blush -->
+  <ellipse cx="168" cy="212" rx="12" ry="7" fill="#FFB870" opacity="0.5"/>
+  <ellipse cx="232" cy="212" rx="12" ry="7" fill="#FFB870" opacity="0.5"/>
+  <!-- Small nervous mouth -->
+  <path d="M190 218 Q200 214 210 218" stroke="#B07030" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- White flag -->
+  <line x1="248" y1="180" x2="248" y2="135" stroke="#8B6050" stroke-width="3" stroke-linecap="round"/>
+  <rect x="248" y="135" width="32" height="22" fill="white" stroke="#CCC" stroke-width="1.5" rx="2"/>
+</svg>
