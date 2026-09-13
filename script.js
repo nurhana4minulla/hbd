@@ -79,6 +79,24 @@ function _fadeTo(audio, targetVol, duration, onDone) {
   _fadeTimers.set(audio, id);
 }
 
+// Tracks whether we already have a pending "resume on interaction" listener,
+// so we never stack duplicate listeners when autoplay is blocked.
+let _pendingResumeRegistered = false;
+
+function _registerResumeOnce(audio) {
+  if (_pendingResumeRegistered) return;
+  _pendingResumeRegistered = true;
+  const resume = () => {
+    _pendingResumeRegistered = false;
+    if (_currentBGM === audio && audio.paused) {
+      audio.play().catch(() => {});
+      _fadeTo(audio, TARGET_VOL, 800);
+    }
+  };
+  document.addEventListener('click',      resume, { once: true });
+  document.addEventListener('touchstart', resume, { once: true });
+}
+
 function playBGM(audio) {
   if (_currentBGM === audio) return; // Already the right track — do nothing
   const prev    = _currentBGM;
@@ -88,14 +106,7 @@ function playBGM(audio) {
     audio.volume = 0;
     audio.play().catch(() => {
       // Autoplay blocked — defer to next user interaction
-      const resume = () => {
-        if (_currentBGM === audio && audio.paused) {
-          audio.play().catch(() => {});
-          _fadeTo(audio, TARGET_VOL, 800);
-        }
-      };
-      document.addEventListener('click',      resume, { once: true });
-      document.addEventListener('touchstart', resume, { once: true });
+      _registerResumeOnce(audio);
     });
     _fadeTo(audio, TARGET_VOL, 900);
   };
@@ -122,15 +133,8 @@ function _tryAutoplay() {
   audio.play().then(() => {
     _fadeTo(audio, TARGET_VOL, 1200);
   }).catch(() => {
-    // Autoplay blocked — start on first user click/touch
-    const onInteract = () => {
-      if (_currentBGM === audio && audio.paused) {
-        audio.play().catch(() => {});
-        _fadeTo(audio, TARGET_VOL, 800);
-      }
-    };
-    document.addEventListener('click',      onInteract, { once: true });
-    document.addEventListener('touchstart', onInteract, { once: true });
+    // Autoplay blocked — reuse the shared resume-on-interaction helper
+    _registerResumeOnce(audio);
   });
 }
 
