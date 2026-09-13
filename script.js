@@ -692,6 +692,13 @@ function initPage6() {
   finalMsg.style.display = 'none';
   finalMsg.classList.remove('visible');
 
+  // Reset bouquet
+  const bouquet = document.getElementById('bouquet');
+  if (bouquet) {
+    bouquet.classList.remove('bouquet--visible');
+    bouquet.querySelectorAll('.bflower').forEach(f => f.classList.remove('bflower--in'));
+  }
+
   // Reset cake messages (so animation replays)
   const msgs = document.getElementById('cake-messages');
   msgs.classList.remove('visible');
@@ -782,6 +789,18 @@ function showFinalMessage() {
     finalMsg.style.display = '';
     void finalMsg.offsetWidth;
     finalMsg.classList.add('visible');
+
+    // Pop in the bouquet
+    const bouquet = document.getElementById('bouquet');
+    if (bouquet) {
+      // Slide the whole bouquet container in
+      bouquet.classList.add('bouquet--visible');
+      // Spring each flower in with staggered delays
+      const flowers = bouquet.querySelectorAll('.bflower');
+      flowers.forEach((f, i) => {
+        setTimeout(() => f.classList.add('bflower--in'), i * 80);
+      });
+    }
 
     // Animate hearts
     const heartsEl = document.getElementById('final-hearts');

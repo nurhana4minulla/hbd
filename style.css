@@ -1121,18 +1121,241 @@ h1, h2, h3 {
   -webkit-overflow-scrolling: touch;
 }
 
-/* ─── RESPONSIVE ─────────────────────────────────────────── */
-@media (max-width: 600px) {
-  .letter-card { padding: 1.4rem 1.2rem; }
-  .meme-grid { gap: .75rem; }
-  .meme-card { padding: .75rem .5rem; }
-  .meme-caption { font-size: .78rem; }
-  .flower-svg { width: 140px; height: 140px; }
-  .flower-svg--alt { width: 110px; height: 110px; }
-  .flower-svg--small { width: 90px; height: 90px; }
-  .cake-tier--top { width: 130px; }
-  .cake-tier--bottom { width: 185px; }
-  .cake-plate { width: 200px; }
-  .game-hud { gap: 1rem; }
-  .hud-item { padding: .5rem 1rem; }
+/* ─── RESPONSIVE — MOBILE FIRST ──────────────────────────── */
+@media (max-width: 480px) {
+
+  /* ── Global layout ── */
+  .page-content {
+    padding: 1.2rem 1rem;
+    gap: 1rem;
+  }
+
+  /* ── Page 1 — Flower corners: scale down so they don't eat the screen ── */
+  .flower-svg       { width: 110px; height: 110px; }
+  .flower-svg--alt  { width: 85px;  height: 85px;  }
+  .flower-svg--small{ width: 70px;  height: 70px;  }
+  .flower-corner--tl { top: -20px; left: -20px; }
+  .flower-corner--tr { top: -20px; right: -20px; }
+  .flower-corner--bl { bottom: -20px; left: -20px; }
+  .flower-corner--br { bottom: -20px; right: -20px; }
+
+  /* ── Page 2 — Letter card ── */
+  .letter-card { padding: 1.2rem 1rem; }
+  .letter-body  { font-size: 1.05rem; line-height: 1.75; }
+  .letter-salutation { font-size: 1.15rem; }
+
+  /* ── Page 3 — Meme grid ── */
+  .meme-grid    { gap: .6rem; }
+  .meme-card    { padding: .6rem .45rem; }
+  .meme-caption { font-size: .75rem; }
+  .processing-text { font-size: 1.1rem; min-width: 180px; }
+
+  /* ── Page 5 — Game ── */
+  .page5-content { gap: .6rem; }
+  .game-hud      { gap: .75rem; }
+  .hud-item      { padding: .4rem .85rem; }
+  .hud-value     { font-size: 1.1rem; }
+  .game-legend   { font-size: .72rem; gap: .6rem; padding: .35rem .9rem; }
+  .mobile-btn    { width: 60px; height: 60px; font-size: 1.2rem; }
+
+  /* ── Page 6 — Cake ── */
+  .cake-scene         { max-width: 280px; }
+  .cake-tier--top     { width: 118px; }
+  .cake-tier--bottom  { width: 168px; }
+  .cake-plate         { width: 184px; }
+  .cake-tier--top::after  { height: 56px; }
+  .cake-tier--bottom::after { height: 64px; }
+  .candle-body        { height: 30px; width: 10px; }
+  .candle-flame       { width: 14px; height: 22px; }
+  .blow-hint          { font-size: .95rem; margin-top: 2rem; }
+  .cake-messages      { gap: .4rem; }
+  .cake-msg-sub       { font-size: .88rem; }
+  .page6-content      { gap: .9rem; padding-top: 1.5rem; padding-bottom: 2rem; }
+
+  /* ── Bouquet — scale stems + heads down for phone ── */
+  .bouquet-flowers    { gap: 2px; padding: 0 4px; }
+
+  .bflower-head       { width: 36px; height: 36px; }
+  .bpetal             { width: 11px; height: 17px; }
+
+  .bflower--1 .bstem  { height: 50px; }
+  .bflower--2 .bstem  { height: 66px; }
+  .bflower--3 .bstem  { height: 76px; }
+  .bflower--4 .bstem  { height: 63px; }
+  .bflower--5 .bstem  { height: 48px; }
+
+  .bflower-center     { width: 11px; height: 11px; }
+
+  .bouquet-wrap       { width: 64px; }
+  .bouquet-ribbon     { width: 28px; height: 22px; }
 }
+
+
+/* ─── FLOWER BOUQUET ──────────────────────────────────────── */
+.bouquet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: .5rem 0 .25rem;
+  opacity: 0;
+  transform: translateY(40px) scale(.7);
+  transition: opacity .5s, transform .5s;
+}
+.bouquet.bouquet--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  /* overall container slides in; individual flowers spring on top */
+}
+
+/* Row of flower stems */
+.bouquet-flowers {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 0 6px;
+}
+
+/* Single flower unit */
+.bflower {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px) scale(.5);
+  /* animated in via JS class */
+}
+.bflower.bflower--in {
+  animation: bflower-pop .55s cubic-bezier(.34,1.62,.64,1) both;
+}
+@keyframes bflower-pop {
+  from { opacity: 0; transform: translateY(30px) scale(.4); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);  }
+}
+
+/* Gentle sway once visible */
+.bflower.bflower--in { animation: bflower-pop .55s cubic-bezier(.34,1.62,.64,1) both, bsway 3.5s ease-in-out infinite; }
+@keyframes bsway {
+  0%,100% { transform: rotate(0deg); }
+  25%      { transform: rotate(2deg); }
+  75%      { transform: rotate(-2deg); }
+}
+
+/* Per-flower heights so they fan at different heights */
+.bflower--1 .bstem { height: 68px; }
+.bflower--2 .bstem { height: 88px; }
+.bflower--3 .bstem { height: 100px; }
+.bflower--4 .bstem { height: 85px; }
+.bflower--5 .bstem { height: 65px; }
+
+/* Stagger delays */
+.bflower--1.bflower--in { animation-delay: 0s,    .6s; }
+.bflower--2.bflower--in { animation-delay: .08s,  .68s; }
+.bflower--3.bflower--in { animation-delay: .16s,  .76s; }
+.bflower--4.bflower--in { animation-delay: .24s,  .84s; }
+.bflower--5.bflower--in { animation-delay: .32s,  .92s; }
+
+/* Flower head — position:relative so petals can be absolute */
+.bflower-head {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+/* Petals — ellipse, rotated at 60° increments */
+.bpetal {
+  position: absolute;
+  width: 14px;
+  height: 22px;
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform-origin: center bottom;
+  opacity: .88;
+}
+.bpetal--a { transform: translate(-50%, -100%) rotate(0deg); }
+.bpetal--b { transform: translate(-50%, -100%) rotate(60deg); }
+.bpetal--c { transform: translate(-50%, -100%) rotate(120deg); }
+.bpetal--d { transform: translate(-50%, -100%) rotate(180deg); }
+.bpetal--e { transform: translate(-50%, -100%) rotate(240deg); }
+.bpetal--f { transform: translate(-50%, -100%) rotate(300deg); }
+
+/* Flower center */
+.bflower-center {
+  position: absolute;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #FFF0A0;
+  box-shadow: 0 0 0 2px #F9D84A;
+  z-index: 2;
+}
+
+/* Flower colour themes */
+.bflower--1 .bpetal { background: #F4B8C8; }
+.bflower--1 .bflower-center { background: #FFF0A0; box-shadow: 0 0 0 2px #F9D84A; }
+
+.bflower--2 .bpetal { background: #C4B5D4; }
+.bflower--2 .bflower-center { background: #FFF5CC; box-shadow: 0 0 0 2px #F9D84A; }
+
+.bflower--3 .bpetal { background: #E8A4B8; }
+.bflower--3 .bflower-center { background: #FFE8A0; box-shadow: 0 0 0 2px #F9C84A; }
+
+.bflower--4 .bpetal { background: #F2C9A0; }
+.bflower--4 .bflower-center { background: #FFF0B0; box-shadow: 0 0 0 2px #F9D84A; }
+
+.bflower--5 .bpetal { background: #F4B8C8; }
+.bflower--5 .bflower-center { background: #FFF0A0; box-shadow: 0 0 0 2px #F2A84A; }
+
+/* Stem */
+.bstem {
+  width: 4px;
+  background: linear-gradient(to bottom, #7BBF6A, #5A9A50);
+  border-radius: 2px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Leaves */
+.bleaf {
+  position: absolute;
+  width: 18px;
+  height: 10px;
+  border-radius: 50% 50% 50% 0;
+  background: #7BBF6A;
+  top: 28%;
+}
+.bleaf--l {
+  left: -14px;
+  transform: rotate(-40deg);
+  border-radius: 50% 0 50% 50%;
+}
+.bleaf--r {
+  right: -14px;
+  transform: rotate(40deg);
+  border-radius: 0 50% 50% 50%;
+}
+
+/* Bouquet wrap (the cone/wrapper at the base) */
+.bouquet-wrap {
+  position: relative;
+  width: 80px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  margin-top: -2px;
+}
+.bouquet-ribbon {
+  width: 36px;
+  height: 28px;
+  background: linear-gradient(135deg, #F4B8C8, #E8A4B8);
+  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 2px 8px rgba(180,100,120,.18);
+}
+.bouquet-ribbon--r {
+  background: linear-gradient(135deg, #C4B5D4, #A89EC4);
+}
+
